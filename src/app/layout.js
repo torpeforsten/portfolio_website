@@ -13,7 +13,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Forstén Portfolio",
+  title: "Roope Forstén - Portfolio",
   description: "Made By Roope Forstén",
 };
 
