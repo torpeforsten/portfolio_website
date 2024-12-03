@@ -9,7 +9,7 @@ const projectsData = [
     description: "This website is built using React and Tailwind CSS.",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/torpeforsten/portfolio_website",
   },
   {
     id: 2,
