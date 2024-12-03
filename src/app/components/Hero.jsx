@@ -16,12 +16,12 @@ const Hero = () => {
                         I showcase my work and knowledge.
                     </p>
 
-                    <div>
+                    <a href="/public/Forsten_CV.pdf" download>
                         <button className="px-6 py-3 rounded-full sm:w-fit mr-4 bg-gradient-to-br from-emerald-900 via-sky-800 to-gray-900 hover:bg-gray-800 text-white">
                             Download CV
                         </button>
 
-                    </div>
+                    </a>
 
                 </div>
 
