@@ -9,9 +9,9 @@ const TAB_DATA = [
         id: "skills",
         content: (
             <ul className="list-disc pl-2">
-                <li>JavaScript / React</li>
+                <li>JavaScript / React / NEXT.js</li>
                 <li>C# / .NET</li>
-                <li>Java Mobile Development</li>
+                <li>Java Mobile Development / Springboot</li>
                 <li>MySQL</li>
                 <li>Python</li>
             </ul>
@@ -58,7 +58,7 @@ const AboutMe = () => {
                     <p className='text-base md:text-lg'>
                         I am a third-year engineering student of information technology in Savonia University of Applied Sciences.
                         I have a passion for web development and UI/UX designing.
-                        I have worked with JavaScript, React, C#, .NET, Java mobile development and mySQL. I am also familiar with basics of Python, Git and linux.
+                        I have worked with JavaScript / NEXT.js / React, C# / .NET, Java mobile development and REST interfaces. I am also familiar with basics of Python, Git, MySQL and basics of linux.
                         On my free time I like to improve my content creation skills and my knowledge of full stack development. I have a entrepreneurial mindset
                         but I am a team player and always ready to seek new opportunities to learn and grow.
                     </p>
