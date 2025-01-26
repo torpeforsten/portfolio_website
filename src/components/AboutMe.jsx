@@ -9,11 +9,26 @@ const TAB_DATA = [
         id: "skills",
         content: (
             <ul className="list-disc pl-2">
-                <li>JavaScript / React / NEXT.js</li>
+                <li>JavaScript / React / Next.js</li>
                 <li>C# / .NET</li>
-                <li>Java Mobile Development / Springboot</li>
+                <li>Java Mobile and Web Development</li>
                 <li>MySQL</li>
                 <li>Python</li>
+            </ul>
+        ),
+    },
+    {
+        title: "Tools and Technologies",
+        id: "tools",
+        content: (
+            <ul className="list-disc pl-2">
+                <li>Visual Studio Code</li>
+                <li>Android Studio</li>
+                <li>IntelliJ</li>
+                <li>MySQL Workbench</li>
+                <li>REST API</li>
+                <li>Git</li>
+                <li>MS Azure</li>
             </ul>
         ),
     },
@@ -58,12 +73,13 @@ const AboutMe = () => {
                     <p className='text-base md:text-lg'>
                         I am a third-year engineering student of information technology in Savonia University of Applied Sciences.
                         I have a passion for web development and UI/UX designing.
-                        I have worked with JavaScript / NEXT.js / React, C# / .NET, Java mobile development and REST interfaces. I am also familiar with basics of Python, Git, MySQL and basics of linux.
+                        I have worked with JavaScript / Next.js / React, C# / .NET, Java mobile and web development and REST interfaces. I am also familiar with basics of Python, Git, MySQL and basics of linux.
                         On my free time I like to improve my content creation skills and my knowledge of full stack development. I have a entrepreneurial mindset
                         but I am a team player and always ready to seek new opportunities to learn and grow.
                     </p>
                     <div className='flex flex-row justify-start mt-8'>
                         <TabButton selectTab={() => handleTabChange('skills')} active={tab === 'Programming Skills'}>{" "}Skills{" "}</TabButton>
+                        <TabButton selectTab={() => handleTabChange('tools')} active={tab === 'Tools and Technologies'}>{" "}Tools{" "}</TabButton>
                         <TabButton selectTab={() => handleTabChange('education')} active={tab === 'Education'}>{" "}Education{" "}</TabButton>
                         <TabButton selectTab={() => handleTabChange('experience')} active={tab === 'Experience'}>{" "}Experience{" "}</TabButton>
                     </div>
