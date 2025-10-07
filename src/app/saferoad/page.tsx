@@ -11,6 +11,7 @@ export default function SafeRoadPage() {
     <main className="text-white px-4 md:px-8 lg:px-12 py-12 max-w-5xl mx-auto">
       {/* Hero */}
       <section className="mb-10">
+        <h2 className="text-3xl md:text-xl font-bold text-red-500">! Pages are in development !</h2>
         <h1 className="text-3xl md:text-5xl font-bold">SafeRoad – Moose Warning App</h1>
         <p className="mt-4 text-lg text-gray-300">
           React Native + Firebase -pohjainen sovellus, joka yhdistää geopaikannuksen,

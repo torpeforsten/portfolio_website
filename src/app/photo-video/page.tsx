@@ -13,6 +13,7 @@ export default function PhotoVideoPage() {
   return (
     <main className="text-white px-4 md:px-8 lg:px-12 pt-6 sm:pt-8 md:pt-12 pb-12 max-w-6xl mx-auto">
       <header className="mb-6 sm:mb-7 md:mb-8">
+        <h2 className="text-3xl md:text-xl font-bold text-red-500">! Pages are in development !</h2>
         <h1 className="text-3xl md:text-5xl font-bold">Photo & Videography</h1>
         <p className="mt-2 sm:mt-3 md:mt-4 text-base sm:text-lg text-gray-300">
           Selected work from photography and drone videography. For more, check
