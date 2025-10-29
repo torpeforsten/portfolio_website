@@ -13,9 +13,9 @@ export default function PhotoVideoPage() {
 const mediaBase = "/images/photos%26video";
 
 const reels916 = [
-  { src: `${mediaBase}/v1.mov`, poster: `${mediaBase}/v1.jpg` },
-  { src: `${mediaBase}/v2.mp4`, poster: `${mediaBase}/v2.jpg` },
-  { src: `${mediaBase}/v3.mp4`, poster: `${mediaBase}/v3.jpg` },
+  { src: `${mediaBase}/v1_web.mp4`, poster: `${mediaBase}/v1.jpg` },
+  { src: `${mediaBase}/v2_web.mp4`, poster: `${mediaBase}/v2.jpg` },
+  { src: `${mediaBase}/v3_web.mp4`, poster: `${mediaBase}/v3.jpg` },
 ];
 
 const landscapes169 = [
@@ -38,6 +38,7 @@ const portraits45 = [
   `${mediaBase}/p8.jpg`,
   `${mediaBase}/p9.jpg`,
 ];
+
 
   return (
     <main className="text-white px-4 sm:px-6 md:px-8 lg:px-12 pt-6 sm:pt-8 md:pt-12 pb-14 max-w-6xl mx-auto">

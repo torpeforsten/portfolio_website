@@ -38,3 +38,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+public/images/photos&video/*.MOV
+public/images/photos&video/*.MP4
