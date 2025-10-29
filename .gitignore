@@ -39,6 +39,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-public/images/photos&video/*.MOV
-public/images/photos&video/*.MP4
+public/images/photoVideo/*.MOV
+public/images/photoVideo/*.MP4
 
