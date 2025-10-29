@@ -12,11 +12,11 @@ export default function LightboxGallery({ images, ratio = "4/5" }: Props) {
   const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
 
-  // Zoom handling
+  // Zoom
   const [scale, setScale] = useState(1);
-  const lastTouch = useRef<{ x: number; y: number } | null>(null);
+  const lastDist = useRef<number | null>(null);
 
-  // Swipe handling
+  // Swipe
   const touchStartX = useRef<number | null>(null);
 
   const next = () => {
@@ -29,7 +29,7 @@ export default function LightboxGallery({ images, ratio = "4/5" }: Props) {
     setIdx((p) => (p - 1 + images.length) % images.length);
   };
 
-  // Keyboard
+  // Keyboard nav
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!open) return;
@@ -41,29 +41,28 @@ export default function LightboxGallery({ images, ratio = "4/5" }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  // Touch events
+  // Touch start
   const handleTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length === 1) {
       touchStartX.current = e.touches[0].clientX;
     } else if (e.touches.length === 2) {
-      lastTouch.current = null;
+      lastDist.current = null;
     }
   };
 
+  // Touch move (pinch zoom)
   const handleTouchMove = (e: React.TouchEvent) => {
-    // pinch zoom
     if (e.touches.length === 2) {
       const t1 = e.touches.item(0)!;
       const t2 = e.touches.item(1)!;
-
       const dist = Math.hypot(t1.pageX - t2.pageX, t1.pageY - t2.pageY);
 
-      if (!lastTouch.current) {
-        lastTouch.current = { x: dist, y: 0 };
+      if (lastDist.current === null) {
+        lastDist.current = dist;
       } else {
-        const delta = dist - lastTouch.current.x;
-        setScale((s) => Math.min(Math.max(s + delta * 0.005, 1), 3));
-        lastTouch.current = { x: dist, y: 0 };
+        const delta = dist - lastDist.current;
+        setScale((s) => Math.min(Math.max(s + delta * 0.004, 1), 3));
+        lastDist.current = dist;
       }
     }
   };
@@ -72,83 +71,93 @@ export default function LightboxGallery({ images, ratio = "4/5" }: Props) {
     if (!touchStartX.current) return;
 
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
-
     if (deltaX > 60) prev();
     else if (deltaX < -60) next();
 
     touchStartX.current = null;
   };
 
+  // Double tap zoom
   const handleDoubleClick = () => {
     setScale((s) => (s > 1 ? 1 : 2));
   };
 
   return (
     <>
-      {/* GRID */}
+      {/* THUMB GRID */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
         {images.map((src, i) => (
-          <div
+          <figure
             key={src}
-            className="mb-4 cursor-pointer"
+            className="mb-4 cursor-pointer break-inside-avoid"
             onClick={() => {
               setIdx(i);
               setOpen(true);
             }}
           >
-            <div className={`relative w-full aspect-[${ratio}]`}>
+            <div className="relative w-full" style={{ aspectRatio: ratio }}>
               <Image
                 src={src}
                 alt=""
                 fill
-                className="object-cover rounded-xl"
+                className="rounded-xl object-cover"
               />
             </div>
-          </div>
+          </figure>
         ))}
       </div>
 
       {/* LIGHTBOX */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center overflow-auto"
+          className="fixed inset-0 bg-black/90 z-[999] flex items-center justify-center overflow-auto"
           onClick={() => {
             setOpen(false);
             setScale(1);
           }}
         >
-          <div className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center overflow-hidden">
+          <div
+            className="relative max-w-[95vw] max-h-[95vh] overflow-hidden touch-pan-y"
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onDoubleClick={handleDoubleClick}
+          >
             <Image
               src={images[idx]}
               alt=""
               width={1600}
               height={2000}
+              className="rounded-xl object-contain select-none"
               style={{
                 transform: `scale(${scale})`,
-                transition: "transform 0.15s",
+                transition: "transform 0.12s ease-out",
+                maxWidth: "100%",
+                maxHeight: "100vh",
               }}
-              className="rounded-xl object-contain mx-auto max-w-full max-h-screen"
             />
 
-            {/* Close */}
+            {/* CLOSE */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setOpen(false);
+                setScale(1);
               }}
-              className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg z-50"
               aria-label="Close"
+              className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg"
             >
               ✕
             </button>
 
-            {/* Desktop arrows */}
+            {/* DESKTOP ARROWS */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 prev();
               }}
-              className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-black items-center justify-center shadow-lg z-50"
+              className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-black items-center justify-center shadow-lg"
             >
               ‹
             </button>
@@ -157,12 +166,12 @@ export default function LightboxGallery({ images, ratio = "4/5" }: Props) {
                 e.stopPropagation();
                 next();
               }}
-              className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-black items-center justify-center shadow-lg z-50"
+              className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-black items-center justify-center shadow-lg"
             >
               ›
             </button>
 
-            {/* Mobile bottom dots */}
+            {/* MOBILE DOTS */}
             <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 md:hidden">
               {images.map((_, i) => (
                 <div
