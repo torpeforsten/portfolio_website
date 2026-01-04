@@ -65,7 +65,7 @@ const TAB_DATA = [
           <strong>Thesis – “Moose Warning System” (SafeRoad App)</strong> — React Native + Firebase app for driver safety: real-time wildlife sighting reports, geolocation, smart push notifications, hunting area overlays (2025)
         </li>
         <li>
-          <strong>Aviste Oy</strong> — Full-stack Mobile & Web Development (04/2025–09/2025 internship)
+          <strong>Aviste Oy</strong> — Full-stack Mobile & Web Development (04/2025–10/2025 internship)
         </li>
         <li>
           <strong>Team projects in school:</strong>
@@ -149,7 +149,7 @@ const AboutMe = () => {
             {/* Tekstit → aina hieman kapeampi kuin tabirivi (prosenttipohjainen, responsiivinen) */}
             <div className="w-full max-w-[92%] sm:max-w-[94%] lg:max-w-[95%] mx-auto md:mx-0 space-y-4 text-base md:text-lg leading-relaxed">
               <p>
-                I am a final-year Computer Science student at Savonia University of Applied Sciences, currently completing my thesis in full-stack development. I am passionate about web and mobile development as well as UI/UX design.
+                I am a soon to be graduate Computer Science student at Savonia University of Applied Sciences, currently completing my thesis in full-stack development. I am passionate about web and mobile development as well as UI/UX design.
               </p>
               <p>
                 I have strong experience with JavaScript, TypeScript, React, Next.js, and React Native (Expo + Firebase). I have also worked with backend technologies such as C# / .NET (Blazor, Web API, Entity Framework) and Java (REST, Vaadin, Android) with working knowledge gained through coursework and projects. In addition, I am skilled in working with databases (Firebase, MySQL, SQLite, H2) and cloud services like Firebase and Microsoft Azure.
