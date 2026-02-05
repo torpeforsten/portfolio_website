@@ -50,7 +50,7 @@ const TAB_DATA = [
       <ul className="list-disc pl-5 sm:pl-6 space-y-3">
         <li>Licensed massage therapist (2019–2020)</li>
         <li>
-          4th Year Bachelor of Engineering, Computer Science (Savonia University of Applied Sciences, 2022–2025)
+          4th Year Bachelor of Engineering, Computer Science (Savonia University of Applied Sciences, 2022–2026)
         </li>
         <li>Studies include: mobile & web development, software engineering, databases, cloud technologies, and IoT</li>
       </ul>
