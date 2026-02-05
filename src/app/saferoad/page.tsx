@@ -115,7 +115,7 @@ export default function SafeRoadPage() {
             href="https://github.com/torpeforsten"
             className="px-4 py-2 md:px-5 md:py-2.5 rounded-lg border border-gray-300 text-white hover:bg-white hover:text-black transition text-sm md:text-base"
           >
-            View on GitHub
+            View on GitHub (Not public yet)
           </Link>
         </div>
       </div>
@@ -328,7 +328,7 @@ export default function SafeRoadPage() {
           href="https://github.com/torpeforsten"
           className="px-4 py-2 rounded-lg border border-gray-400 text-gray-200 hover:bg-white hover:text-black transition"
         >
-          View on GitHub
+          View on GitHub (Not public yet)
         </Link>
       </section>
     </main>
